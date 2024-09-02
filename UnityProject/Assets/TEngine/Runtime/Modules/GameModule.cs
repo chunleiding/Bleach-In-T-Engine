@@ -15,7 +15,7 @@ namespace TEngine
         private static readonly Dictionary<Type, Module> _moduleMaps = new Dictionary<Type, Module>(ModuleImpSystem.DesignModuleCount);
 
         private static GameObject _gameModuleRoot;
-        
+
         #region 框架模块
         /// <summary>
         /// 获取游戏基础模块。
@@ -81,41 +81,49 @@ namespace TEngine
         public static SettingModule Setting => _setting ??= Get<SettingModule>();
 
         private static SettingModule _setting;
-        
+
         /// <summary>
         /// 获取UI模块。
         /// </summary>
         public static UIModule UI => _ui ??= Get<UIModule>();
 
         private static UIModule _ui;
-        
+
         /// <summary>
         /// 获取多语言模块。
         /// </summary>
         public static LocalizationModule Localization => _localization ??= Get<LocalizationModule>();
 
         private static LocalizationModule _localization;
-        
+
         /// <summary>
         /// 获取场景模块。
         /// </summary>
         public static SceneModule Scene => _scene ??= Get<SceneModule>();
-        
+
         private static SceneModule _scene;
-        
+
         /// <summary>
         /// 获取计时器模块。
         /// </summary>
         public static TimerModule Timer => _timer ??= Get<TimerModule>();
-        
+
         private static TimerModule _timer;
-        
+
         /// <summary>
         /// 资源组件拓展。
         /// </summary>
         public static ResourceExtComponent ResourceExt => _resourceExt ??= Get<ResourceExtComponent>();
-        
+
         private static ResourceExtComponent _resourceExt;
+
+        /// <summary>
+        /// 网络模块
+        /// </summary> 
+         public static UnityNetWork NetWork => _netWork ?? Get<UnityNetWork>();
+
+        private static UnityNetWork _netWork;
+
         #endregion
 
         /// <summary>
@@ -158,7 +166,7 @@ namespace TEngine
                 _gameModuleRoot = null;
             }
             _moduleMaps.Clear();
-            
+
             _base = null;
             _debugger = null;
             _fsm = null;
@@ -194,7 +202,7 @@ namespace TEngine
         {
             if (state == PlayModeStateChange.ExitingPlayMode)
             {
-				ModuleImpSystem.Shutdown();
+                ModuleImpSystem.Shutdown();
                 ModuleSystem.Shutdown(ShutdownType.Quit);
             }
         }

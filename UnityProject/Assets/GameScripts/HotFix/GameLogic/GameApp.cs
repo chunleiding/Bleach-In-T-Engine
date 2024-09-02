@@ -6,30 +6,36 @@ using TEngine;
 /// <summary>
 /// 游戏App。
 /// </summary>
-public partial class GameApp:Singleton<GameApp>
+public partial class GameApp : Singleton<GameApp>
 {
     private static List<Assembly> _hotfixAssembly;
-    
+
+    public static void Entrance(object[] objects)
+    {
+        Log.Warning("======= Entrance GameApp =======");
+        Instance.StartGameLogic();
+    }
+
     /// <summary>
     /// 热更域App主入口。
     /// </summary>
     /// <param name="objects"></param>
-    public static void Entrance(object[] objects)
-    {
-        _hotfixAssembly = (List<Assembly>)objects[0];
-        Log.Warning("======= 看到此条日志代表你成功运行了热更新代码 =======");
-        Log.Warning("======= Entrance GameApp =======");
-        Instance.Active();
-        Instance.Start();
-        Utility.Unity.AddUpdateListener(Instance.Update);
-        Utility.Unity.AddFixedUpdateListener(Instance.FixedUpdate);
-        Utility.Unity.AddLateUpdateListener(Instance.LateUpdate);
-        Utility.Unity.AddDestroyListener(Instance.OnDestroy);
-        Utility.Unity.AddOnDrawGizmosListener(Instance.OnDrawGizmos);
-        Utility.Unity.AddOnApplicationPauseListener(Instance.OnApplicationPause);
-        GameModule.Procedure.RestartProcedure(new GameLogic.OnEnterGameAppProcedure());
-        Instance.StartGameLogic();
-    }
+    //public static void Entrance(object[] objects)
+    //{
+    //    _hotfixAssembly = (List<Assembly>)objects[0];
+    //    Log.Warning("======= 看到此条日志代表你成功运行了热更新代码 =======");
+    //    Log.Warning("======= Entrance GameApp =======");
+    //    Instance.Active();
+    //    Instance.Start();
+    //    Utility.Unity.AddUpdateListener(Instance.Update);
+    //    Utility.Unity.AddFixedUpdateListener(Instance.FixedUpdate);
+    //    Utility.Unity.AddLateUpdateListener(Instance.LateUpdate);
+    //    Utility.Unity.AddDestroyListener(Instance.OnDestroy);
+    //    Utility.Unity.AddOnDrawGizmosListener(Instance.OnDrawGizmos);
+    //    Utility.Unity.AddOnApplicationPauseListener(Instance.OnApplicationPause);
+    //    GameModule.Procedure.RestartProcedure(new GameLogic.OnEnterGameAppProcedure());
+    //    Instance.StartGameLogic();
+    //}
 
     /// <summary>
     /// 开始游戏业务层逻辑。
@@ -37,7 +43,11 @@ public partial class GameApp:Singleton<GameApp>
     /// </summary>
     private void StartGameLogic()
     {
-        
+        GameModule.Procedure.RestartProcedure(new GameLogic.OnEnterTestSceneProcedure());
+
+        Log.Error("开始我的游戏的进入流程");
+
+
     }
 
     /// <summary>
@@ -61,7 +71,7 @@ public partial class GameApp:Singleton<GameApp>
             Utility.Unity.RemoveOnDrawGizmosListener(Instance.OnDrawGizmos);
             Utility.Unity.RemoveOnApplicationPauseListener(Instance.OnApplicationPause);
         }
-        
+
         SingletonSystem.Release();
     }
 

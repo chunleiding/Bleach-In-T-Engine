@@ -284,6 +284,7 @@ namespace TEngine
                 return buffer;
             }
 
+
             /// <summary>
             /// 以字节数组的形式获取指定的 16 位无符号整数值。
             /// </summary>
