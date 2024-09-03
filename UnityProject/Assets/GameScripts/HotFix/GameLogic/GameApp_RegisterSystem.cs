@@ -9,7 +9,11 @@ public partial class GameApp : Singleton<GameApp>
 
     public override void Active()
     {
+<<<<<<< HEAD
         //CodeTypes.Instance.Init(_hotfixAssembly.ToArray());
+=======
+        CodeTypes.Instance.Init(_hotfixAssembly.ToArray());
+>>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
         EventInterfaceHelper.Init();
         _listLogicMgr = new List<ILogicSys>();
         RegisterAllSystem();
@@ -21,7 +25,11 @@ public partial class GameApp : Singleton<GameApp>
     /// </summary>
     private void InitSystemSetting()
     {
+<<<<<<< HEAD
         AddLogicSys(Battle.Instance);
+=======
+
+>>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
     }
 
     /// <summary>
@@ -31,7 +39,10 @@ public partial class GameApp : Singleton<GameApp>
     {
         //带生命周期的单例系统。
         AddLogicSys(BehaviourSingleSystem.Instance);
+<<<<<<< HEAD
         //AddLogicSys(Battle.Instance);
+=======
+>>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
     }
 
     /// <summary>

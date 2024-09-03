@@ -13,9 +13,13 @@ public partial class GameApp : Singleton<GameApp>
     public static void Entrance(object[] objects)
     {
         Log.Warning("======= Entrance GameApp =======");
+<<<<<<< HEAD
         
         Instance.StartGameLogic();
 
+=======
+        Instance.StartGameLogic();
+>>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
     }
 
     /// <summary>
@@ -46,6 +50,7 @@ public partial class GameApp : Singleton<GameApp>
     private void StartGameLogic()
     {
         GameModule.Procedure.RestartProcedure(new GameLogic.OnEnterTestSceneProcedure());
+<<<<<<< HEAD
         Instance.Active();
         Instance.Start();
         Utility.Unity.AddUpdateListener(Instance.Update);
@@ -54,6 +59,9 @@ public partial class GameApp : Singleton<GameApp>
         Utility.Unity.AddDestroyListener(Instance.OnDestroy);
         Utility.Unity.AddOnDrawGizmosListener(Instance.OnDrawGizmos);
         Utility.Unity.AddOnApplicationPauseListener(Instance.OnApplicationPause);
+=======
+
+>>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
         Log.Error("开始我的游戏的进入流程");
 
 

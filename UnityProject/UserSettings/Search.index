@@ -2,7 +2,11 @@
     "name": "Assets",
     "roots": ["Assets"],
     "includes": [],
+<<<<<<< HEAD
     "excludes": ["Assets/Temp/", "Assets/External/"],
+=======
+    "excludes": [],
+>>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
     "options": {
         "types": true,
         "properties": true,
