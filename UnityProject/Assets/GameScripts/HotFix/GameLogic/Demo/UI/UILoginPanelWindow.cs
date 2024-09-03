@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.IO;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace GameLogic
 {
@@ -31,19 +32,20 @@ namespace GameLogic
             m_toggleRemember = FindChildComponent<Toggle>("UILoginPanelWindow/m_toggRemember");
             m_droUser_Group = FindChildComponent<Dropdown>("UILoginPanelWindow/m_droUser_Group");
 
+            m_droUser_Group.onValueChanged.AddListener(OnUserNameAndPaw);
             m_btnLogin.onClick.AddListener(OnClickLoginBtn);
             m_btnforget.onClick.AddListener(OnClickforgetBtn);
             m_inputUser.onEndEdit.AddListener(OnGettingUser);
             m_inputPassWord.onEndEdit.AddListener(OnGettingPassWord);
-            m_droUser_Group.onValueChanged.AddListener(OnUserNameAndPaw);
-
-
+          
         }
         //下拉框监听事件
         private void OnUserNameAndPaw(int index)
         {
             m_inputUser.text = arr[index].Name;
             m_inputPassWord.text = arr[index].Password;
+            _userTest.Password = arr[index].Name;
+            _userTest.Name = arr[index].Password;
         }
 
         List<ReqLoginMessage> arr = new List<ReqLoginMessage>();
@@ -90,8 +92,18 @@ namespace GameLogic
 
         private void OnClickLoginBtn()
         {
-            //发送登录请求
-            GameModule.NetWork.SendMessage(_userTest);
+            if (_userTest.Name != null && _userTest.Password != null)
+            {
+                //发送登录请求
+                GameModule.NetWork.SendMessage(_userTest);
+            }
+            else
+            {
+                Log.Error("账号密码不能为空！");
+            }
+            Log.Info("账号====》" + _userTest.Name + "密码=====》" + _userTest.Password);
+            
+           
         }
         /// <summary>
         /// 服务器返回请求
