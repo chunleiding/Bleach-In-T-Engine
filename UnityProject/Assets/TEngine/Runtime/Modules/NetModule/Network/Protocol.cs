@@ -148,7 +148,7 @@ public class Protocol
         //这里查看服务器发送过来的消息号是否注册;
         if (!_protocolMessageDictionary.TryGetValue(id, out var mes))
         {
-            Log.Error($"消息未注册,id is{id}");   
+           // Log.Error($"消息未注册,id is{id}");   
         }
         return mes;
     }

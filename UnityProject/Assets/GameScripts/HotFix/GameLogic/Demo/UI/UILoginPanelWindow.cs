@@ -7,6 +7,8 @@ using Newtonsoft.Json;
 using System.IO;
 using UnityEditor;
 using System.Collections.Generic;
+using System.Xml.Linq;
+using UnityEngine.SceneManagement;
 
 namespace GameLogic
 {
@@ -44,6 +46,8 @@ namespace GameLogic
         {
             m_inputUser.text = arr[index].Name;
             m_inputPassWord.text = arr[index].Password;
+            _userTest.Name = arr[index].Name;
+            _userTest.Password = arr[index].Password;
         }
 
         List<ReqLoginMessage> arr = new List<ReqLoginMessage>();
@@ -90,8 +94,17 @@ namespace GameLogic
 
         private void OnClickLoginBtn()
         {
-            //发送登录请求
-            GameModule.NetWork.SendMessage(_userTest);
+            if (_userTest.Password == null || _userTest.Name == null || m_inputUser.text == null || _userTest.Password == string.Empty)
+            {
+                Log.Error("请输入用户名，密码！");
+            }
+            else
+            {
+                //发送登录请求
+                GameModule.NetWork.SendMessage(_userTest);
+                Log.Info("向服务器发送请求");
+            }
+
         }
         /// <summary>
         /// 服务器返回请求
@@ -113,14 +126,19 @@ namespace GameLogic
                             File.WriteAllText(Application.dataPath + "/Resources/UserJson.json", json);
                             AssetDatabase.Refresh();
                         }
-
                     }
+                    GameModule.Scene.LoadScene("PlayScence", LoadSceneMode.Single);
+                    GameModule.UI.CloseUI<UILoginPanelWindow>();
                     ; break;
-                case 1: Log.Info("服务器未开启"); ; break;
-                case 2: Log.Info("用户名密码错"); ; break;
-                case 3: Log.Info("在ip黑名单中"); ; break;
-                case 4: Log.Info("在玩家黑名单中"); ; break;
-                case 5: Log.Info("版本不匹配"); ; break;
+                case 1: Log.Error("服务器未开启"); ; break;
+                case 2:
+                    Log.Error("用户名密码错误");
+                    _userTest.Password = null;
+                    m_inputPassWord.text = "";
+                    ; break;
+                case 3: Log.Error("在ip黑名单中"); ; break;
+                case 4: Log.Error("在玩家黑名单中"); ; break;
+                case 5: Log.Error("版本不匹配"); ; break;
             }
         }
         //该账号密码是否被记住
