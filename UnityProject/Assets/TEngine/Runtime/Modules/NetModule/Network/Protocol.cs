@@ -91,10 +91,7 @@ public class Protocol
 
         if (message != null)
         {
-<<<<<<< HEAD
             Log.Info("消息号====》"+message.ToString());
-=======
->>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
             GameEvent.Send(message.GetId(), message);
         }
     }

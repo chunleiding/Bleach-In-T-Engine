@@ -49,20 +49,12 @@
       "url": "https://packages.unity.cn"
     },
     "com.unity.burst": {
-<<<<<<< HEAD
       "version": "1.8.15",
       "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
         "com.unity.modules.jsonserialize": "1.0.0"
-=======
-      "version": "1.8.11",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.mathematics": "1.2.1"
->>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
       },
       "url": "https://packages.unity.cn"
     },
@@ -122,11 +114,7 @@
       "url": "https://packages.unity.cn"
     },
     "com.unity.render-pipelines.core": {
-<<<<<<< HEAD
       "version": "14.0.11",
-=======
-      "version": "14.0.9",
->>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
       "depth": 1,
       "source": "builtin",
       "dependencies": {
@@ -137,28 +125,18 @@
       }
     },
     "com.unity.render-pipelines.universal": {
-<<<<<<< HEAD
       "version": "14.0.11",
-=======
-      "version": "14.0.9",
->>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
       "depth": 0,
       "source": "builtin",
       "dependencies": {
         "com.unity.mathematics": "1.2.1",
         "com.unity.burst": "1.8.9",
-<<<<<<< HEAD
         "com.unity.render-pipelines.core": "14.0.11",
         "com.unity.shadergraph": "14.0.11",
-=======
-        "com.unity.render-pipelines.core": "14.0.9",
-        "com.unity.shadergraph": "14.0.9",
->>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
         "com.unity.render-pipelines.universal-config": "14.0.9"
       }
     },
     "com.unity.render-pipelines.universal-config": {
-<<<<<<< HEAD
       "version": "14.0.10",
       "depth": 1,
       "source": "builtin",
@@ -168,17 +146,6 @@
     },
     "com.unity.scriptablebuildpipeline": {
       "version": "1.21.23",
-=======
-      "version": "14.0.9",
-      "depth": 1,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.render-pipelines.core": "14.0.9"
-      }
-    },
-    "com.unity.scriptablebuildpipeline": {
-      "version": "1.21.21",
->>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
       "depth": 1,
       "source": "registry",
       "dependencies": {},
@@ -192,19 +159,11 @@
       "url": "https://packages.unity.cn"
     },
     "com.unity.shadergraph": {
-<<<<<<< HEAD
       "version": "14.0.11",
       "depth": 1,
       "source": "builtin",
       "dependencies": {
         "com.unity.render-pipelines.core": "14.0.11",
-=======
-      "version": "14.0.9",
-      "depth": 1,
-      "source": "builtin",
-      "dependencies": {
-        "com.unity.render-pipelines.core": "14.0.9",
->>>>>>> 48404c380af1e28512fcf9aac0dd3a7e38b16c8d
         "com.unity.searcher": "4.9.2"
       }
     },
