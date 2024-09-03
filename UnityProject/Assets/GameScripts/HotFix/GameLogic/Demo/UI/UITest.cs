@@ -30,19 +30,19 @@ namespace GameLogic
             // GameModule.UI.CloseUI<UITest>();
             // SaySomeThings();
             //根据配置表获取;
-            GameModule.NetWork.StartNetWork("10.161.16.110", 7718);
+            GameModule.NetWork.StartNetWork("127.0.0.1", 7718);
             GameModule.Procedure.RestartProcedure(new OnEnterLoginSceneProcedure());
 
-            int a = 1;
-            int c=GameModule.Timer.AddTimer((x) =>
-            {
-                a++;
-                if (a == 10)
-                {
-                }
-                Log.Info($"事件{a}");
-            },4,false);
-            await UniTask.Yield();
+            //int a = 1;
+            //int c=GameModule.Timer.AddTimer((x) =>
+            //{
+            //    a++;
+            //    if (a == 10)
+            //    {
+            //    }
+            //    Log.Info($"事件{a}");
+            //},4,false);
+            //await UniTask.Yield();
         }
         #endregion
 

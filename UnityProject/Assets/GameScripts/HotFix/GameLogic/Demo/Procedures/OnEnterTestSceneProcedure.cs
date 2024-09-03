@@ -43,13 +43,15 @@ namespace GameLogic
         {
             base.OnEnter(procedureOwner);
 
-            GameModule.UI.ShowUI<UILoginWindow>();
+          //GameModule.UI.ShowUI<UILoginWindow>();
+           GameModule.UI.ShowUI<UILoginPanelWindow>();
         }
 
         protected override void OnLeave(IFsm<IProcedureManager> procedureOwner, bool isShutdown)
         {
             base.OnLeave(procedureOwner, isShutdown);
-            GameModule.UI.CloseUI<UILoginWindow>();
+          //  GameModule.UI.CloseUI<UILoginWindow>();
+            GameModule.UI.CloseUI<UILoginPanelWindow>();
         }
     }
 
