@@ -43,7 +43,8 @@ namespace GameLogic
         {
             base.OnEnter(procedureOwner);
 
-          //GameModule.UI.ShowUI<UILoginWindow>();
+            //GameModule.UI.ShowUI<UILoginWindow>();
+            
            GameModule.UI.ShowUI<UILoginPanelWindow>();
         }
 
